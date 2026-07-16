@@ -39,6 +39,7 @@
 | target_pokemon_id | integer | Pokemon being countered |
 | counter_pokemon_id | integer | Counter Pokemon |
 | score | decimal | Counter effectiveness score |
+| battle_type | text | raids, gyms, pvp, etc |
 
 ---
 
@@ -47,9 +48,9 @@
 | Field | Type | Description |
 |-------|------|-------------|
 | id | integer | Internal ID |
-| category | text | Fast or Charged |
-| type1 | text | Primary type |
-| type2 | text | Secondary type |
+| pokemon_id | integer | references pokemon table |
+| category | text | attacker, defender, pvp, raid, gym |
+| ranking_type | text | fire, ground, dragon, overall |
 | rank | integer | position in rankings |
 
 ---
@@ -59,12 +60,35 @@
 | Field | Type | Description |
 |-------|------|-------------|
 | type_name | text | pokemon type name |
-| strong_against | array | typings pokemon is effect or super effective against |
-| weak_against | array | typings pokemon is weak to |
+| super_effective_against | array | typings pokemon super effective against |
+| not_effective_against | array | typings pokemon does not do much damage to |
+| weak_to | array | typings pokemon is weak to |
 | resists | array | types it resists |
+| immune_to | array | no damage taken by these types |
 
 ---
 
+## PokemonMoves
+
+| Field | Type | Description |
+|-------|------|-------------|
+| pokemon_id | integer | references pokemon table |
+| move_id | integer | move |
+| is_elite_tm | boolean | requires elite tm |
+| legacy_move | boolean | Legacy move |
+| stab | boolean | same type attack bonus |
+
+---
+
+## Evolutions 
+| Field | Type | Description |
+|-------|------|-------------|
+| pokemon_id | integer | references national dex number |
+| evolves_to_id | integers | national dex number of evolution |
+| candy_cost | integer | amount of candy needed for evolution |
+| special_requirement | text | some need special requiremetns to evolve |
+
+---
 
 
 #############################################################
