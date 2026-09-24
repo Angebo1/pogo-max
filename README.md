@@ -11,3 +11,5 @@ Create the easiest way for Pokemon GO players to discover:
 - Type effectiveness
 - Power-up recommendations
 - Collection optimization
+
+Still under development...
